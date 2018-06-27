@@ -1,0 +1,34 @@
+﻿@model PagedList.IPagedList<ContosoUniversity.Models.FirstName>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Elf Names";
+}
+
+
+<h2>Elf Names</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Name", "Elf", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+        </tr>
+    }
+
+</table>
+@using (Html.BeginForm("Elf", "FirstName", FormMethod.Get))
+{
+}
+<br />
+@*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))*@

@@ -20,17 +20,17 @@ namespace ContosoUniversity.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
-        public ActionResult About()
-        {
-            IQueryable<EnrollmentDateGroup> data = from student in db.Students
-                group student by student.EnrollmentDate into dateGroup
-                select new EnrollmentDateGroup()
-                {
-                    EnrollmentDate = dateGroup.Key,
-                    StudentCount = dateGroup.Count()
-                };
-            return View(data.ToList());
-        }
+        //public ActionResult About()
+        //{
+        //    IQueryable<EnrollmentDateGroup> data = from firstname in db.FirstNames
+        //        group firstname by firstname.DateAdded into dateGroup
+        //        select new EnrollmentDateGroup()
+        //        {
+        //            EnrollmentDate = dateGroup.Key,
+        //            FirstNameCount = dateGroup.Count()
+        //        };
+        //    return View(data.ToList());
+        //}
 
         public ActionResult Contact()
         {
